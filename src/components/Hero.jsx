@@ -1,5 +1,5 @@
 import React from 'react'
-import Search from './ui/Search'
+import Search from './Search'
 
 function Hero() {
   return (
