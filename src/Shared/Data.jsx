@@ -75,7 +75,23 @@ const Category=[
         id:6,
         name: 'electric',
         icon: 'https://cdn-icons-png.flaticon.com/128/3444/3444059.png'
-    }
+    },
+    {
+        id:6,
+        name: 'buggy',
+        icon:'https://cdn-icons-png.flaticon.com/128/10043/10043683.png'
+    },
+    {
+        id:7,
+        name: 'convertible',
+        icon:'https://cdn-icons-png.flaticon.com/128/3097/3097139.png'
+    },
+    {
+        id:8,
+        name: 'MUV',
+        icon: 'https://cdn-icons-png.flaticon.com/128/11410/11410087.png'
+    }, 
+
 ]
 
 
