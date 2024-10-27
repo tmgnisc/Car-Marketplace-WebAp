@@ -70,6 +70,11 @@ const Category=[
         id:5,
         name: 'sedan',
         icon:'https://cdn-icons-png.flaticon.com/128/2736/2736918.png'
+    },
+    {
+        id:6,
+        name: 'electric',
+        icon: 'https://cdn-icons-png.flaticon.com/128/3444/3444059.png'
     }
 ]
 
