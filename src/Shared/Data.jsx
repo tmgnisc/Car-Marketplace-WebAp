@@ -44,7 +44,34 @@ const Pricing = [
     }
 ];
 
+const Category=[
+    {
+        id:1, 
+        name:'SUV',
+        icon: 'https://cdn-icons-png.flaticon.com/128/4391/4391474.png'
+    },
+
+    {
+        id:2, 
+        name: 'jeep',
+        icon: 'https://cdn-icons-png.flaticon.com/128/4391/4391688.png'
+    },
+    {
+        id:3,
+        name: 'van',
+        icon: 'https://cdn-icons-png.flaticon.com/128/2311/2311487.png'
+    },
+    {
+        id:4,
+        name:'truck',
+        icon:'https://cdn-icons-png.flaticon.com/128/819/819873.png'
+    },
+    {
+        id:5,
+        name: 'sedan',
+        icon:'https://cdn-icons-png.flaticon.com/128/2736/2736918.png'
+    }
+]
 
 
-
-export default {Company, Pricing};
+export default {Company, Pricing, Category};
