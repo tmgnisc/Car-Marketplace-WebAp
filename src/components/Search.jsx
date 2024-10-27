@@ -18,8 +18,8 @@ function Search() {
           <SelectValue placeholder="Cars" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="light">New</SelectItem>
-          <SelectItem value="dark">Old</SelectItem>
+          <SelectItem value="new" className="bg-white hover:bg-gray-100">New</SelectItem>
+          <SelectItem value="old" className="bg-white hover:bg-gray-100">Old</SelectItem>
         </SelectContent>
       </Select>
 
@@ -31,8 +31,14 @@ function Search() {
           <SelectValue placeholder="Company" />
         </SelectTrigger>
         <SelectContent>
-          {Data.Company.map((maker, index) => (
-            <SelectItem value="{maker.name}">{maker.name}</SelectItem>
+          {Data.Company.map((maker) => (
+            <SelectItem 
+              key={maker.id} 
+              value={maker.name} 
+              className="bg-white hover:bg-gray-100"
+            >
+              {maker.name}
+            </SelectItem>
           ))}
         </SelectContent>
       </Select>
@@ -42,14 +48,21 @@ function Search() {
 
       <Select>
         <SelectTrigger className="outline-none md:border-none w-full shadow-none text-lg">
-          <SelectValue placeholder="Theme" />
+          <SelectValue placeholder="Pricing" />
         </SelectTrigger>
         <SelectContent>
-          <SelectItem value="light">Light</SelectItem>
-          <SelectItem value="dark">Dark</SelectItem>
-          <SelectItem value="system">System</SelectItem>
+          {Data.Pricing.map((price) => (
+            <SelectItem 
+              key={price.id} 
+              value={price.amount} 
+              className="bg-white hover:bg-gray-100"
+            >
+              {price.amount}
+            </SelectItem>
+          ))}
         </SelectContent>
       </Select>
+      
       <div>
         <CiSearch className="text-[50px] bg-primary rounded-full p-3 text-white hover:scale-105 transition-all cursor-pointer" />
       </div>
