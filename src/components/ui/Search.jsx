@@ -11,7 +11,7 @@ function Search() {
   return (
     <div className="p-2 md:p-5 bg-white rounded-md md:rounded-full flex-col md:flex md:flex-row gap-10 px-5 items-center w-full md:w-max">
       <Select>
-        <SelectTrigger className="w-[180px] outline-none md:border-none w-full shadow-none text-lg">
+        <SelectTrigger className="outline-none md:border-none w-full shadow-none text-lg">
           <SelectValue placeholder="Theme" />
         </SelectTrigger>
         <SelectContent>
@@ -21,7 +21,7 @@ function Search() {
         </SelectContent>
       </Select>
       <Select>
-        <SelectTrigger className="w-[180px] outline-none md:border-none w-full shadow-none text-lg">
+        <SelectTrigger className="outline-none md:border-none w-full shadow-none text-lg">
           <SelectValue placeholder="Theme" />
         </SelectTrigger>
         <SelectContent>
@@ -31,7 +31,7 @@ function Search() {
         </SelectContent>
       </Select>
       <Select>
-        <SelectTrigger className="w-[180px] outline-none md:border-none w-full shadow-none text-lg">
+        <SelectTrigger className="outline-none md:border-none w-full shadow-none text-lg">
           <SelectValue placeholder="Theme" />
         </SelectTrigger>
         <SelectContent>
