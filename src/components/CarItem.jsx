@@ -8,6 +8,7 @@ import { MdOpenInNew } from "react-icons/md";
 function CarItem({ car }) {
   return (
     <div className="rounded-xl bg-white border hover:shadow-lg cursor-pointer">
+        <h2 className="absolute m-2 bg-green-500 px-2 rounded-full text-sm text-white pb-1">New</h2>
       <img src={car?.image} width={'100%'} height={250} className="rounded-t-xl" />
       <div className="p-4">
         <h2 className="font-bold text-black text-lg mb-2">{car?.name}</h2>
