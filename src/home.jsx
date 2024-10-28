@@ -4,6 +4,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 
   import Category from './components/Category'
+import MostSearchedCar from './components/MostSearchedCar'
 
 const Home = () => {
   return (
@@ -16,6 +17,9 @@ const Home = () => {
       {/* category */}
 
      <Category/>
+
+
+     <MostSearchedCar/>
     </div>
   )
 }

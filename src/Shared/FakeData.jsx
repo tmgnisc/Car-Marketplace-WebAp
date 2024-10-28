@@ -1,10 +1,10 @@
-import { Faker } from "@faker-js/faker/."
+import {faker} from '@faker-js/faker'
 function createRandomCarList(){
     return {
         name:faker.vehicle.vehicle(),
         fuelType:faker.vehicle.fuel(),
         model:faker.vehicle.model(),
-        type:faker.vehile.type(),
+        type:faker.vehicle.type(),
         image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQef9NspjZwWA3D9DkH-nD5Fau2LD8jG3lnDw&s',
         miles:1000,
         gearType:'Automatic',
