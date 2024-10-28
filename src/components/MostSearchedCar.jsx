@@ -1,20 +1,31 @@
-import React from 'react'
-import FakeData from '@/Shared/FakeData'
-import CarItem from './CarItem'
-
+import React from "react";
+import FakeData from "@/Shared/FakeData";
+import CarItem from "./CarItem";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 function MostSearchedCar() {
   return (
-   <div>
-    <h2 className='font-bold text-3xl text-center my-8'>Most Searched Car</h2>
-
-    {FakeData.carList.map((car,index)=>(
-        <CarItem car={car}/>
-    ))}
-   </div>
-    
- 
-    
-  )
+    <div className="mx-24">
+      <h2 className="font-bold text-3xl text-center my-8">Most Searched Car</h2>
+      <Carousel>
+        <CarouselContent>
+          {FakeData.carList.map((car, index) => (
+            <CarouselItem className="basis-1/4">
+              {" "}
+              <CarItem car={car} />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious />
+        <CarouselNext />
+      </Carousel>
+    </div>
+  );
 }
 
-export default MostSearchedCar
+export default MostSearchedCar;
