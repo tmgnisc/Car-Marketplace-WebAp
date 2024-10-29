@@ -11,13 +11,14 @@ function AddListing() {
         <h2 className="font-bold text-4xl">Add new Listing</h2>
         <form className="p-10 border rounded-xl mt-10">
           {/* car details */}
-          <div>
+          <div> 
             <h2 className="font-medium text-xl mb-6">Car Details</h2>
-            <div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {carDetails.carDetails.map((item, index) => (
                 <div key={index}>
+                  <lable className='text-sm'>{item?.label} {item.required&&<span className="text-red-600">*</span>}</lable>
                   {item.fieldType == "text" || item.fieldType == "number" ? (
-                    <InputField />
+                    <InputField item={item} />
                   ) : null}
                 </div>
               ))}
