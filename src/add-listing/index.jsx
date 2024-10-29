@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import React from "react";
 import carDetails from "./../Shared/carDetails.json";
 import InputField from "./components/InputField";
+import DropdownField from "./components/DropdownField";
 
 function AddListing() {
   return (
@@ -19,7 +20,7 @@ function AddListing() {
                   <lable className='text-sm'>{item?.label} {item.required&&<span className="text-red-600">*</span>}</lable>
                   {item.fieldType == "text" || item.fieldType == "number" ? (
                     <InputField item={item} />
-                  ) : null}
+                  ):item.fieldType=='dropdown'?<DropdownField/> : null}
                 </div>
               ))}
             </div>
