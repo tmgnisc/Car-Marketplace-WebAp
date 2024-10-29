@@ -1,5 +1,7 @@
 import Header from "@/components/Header";
 import React from "react";
+import carDetails from "./../Shared/carDetails.json";
+import InputField from "./components/InputField";
 
 function AddListing() {
   return (
@@ -11,6 +13,15 @@ function AddListing() {
           {/* car details */}
           <div>
             <h2 className="font-medium text-xl mb-6">Car Details</h2>
+            <div>
+              {carDetails.carDetails.map((item, index) => (
+                <div key={index}>
+                  {item.fieldType == "text" || item.fieldType == "number" ? (
+                    <InputField />
+                  ) : null}
+                </div>
+              ))}
+            </div>
           </div>
         </form>
       </div>
