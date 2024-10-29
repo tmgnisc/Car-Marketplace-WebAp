@@ -20,7 +20,7 @@ function AddListing() {
                   <lable className='text-sm'>{item?.label} {item.required&&<span className="text-red-600">*</span>}</lable>
                   {item.fieldType == "text" || item.fieldType == "number" ? (
                     <InputField item={item} />
-                  ):item.fieldType=='dropdown'?<DropdownField/> : null}
+                  ):item.fieldType=='dropdown'?<DropdownField item={item}/> : null}
                 </div>
               ))}
             </div>
