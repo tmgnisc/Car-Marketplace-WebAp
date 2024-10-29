@@ -4,6 +4,7 @@ import carDetails from "./../Shared/carDetails.json";
 import InputField from "./components/InputField";
 import DropdownField from "./components/DropdownField";
 import TextAreaField from "./components/TextAreaField";
+import { Separator } from "@/components/ui/separator";
 
 function AddListing() {
   return (
@@ -25,6 +26,11 @@ function AddListing() {
                 </div>
               ))}
             </div>
+          </div>
+          <Separator className="my-6"/>
+          {/* features */}
+          <div>
+            <h2 className='font-medium text-xl my-6'>Features</h2>
           </div>
         </form>
       </div>
