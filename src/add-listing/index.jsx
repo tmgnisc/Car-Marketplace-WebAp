@@ -1,5 +1,5 @@
 import Header from "@/components/Header";
-import React from "react";
+import React, { useState } from "react";
 import carDetails from "./../Shared/carDetails.json";
 import InputField from "./components/InputField";
 import DropdownField from "./components/DropdownField";
@@ -10,6 +10,21 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
 
 function AddListing() {
+  const [formData, setFormData] = useState([]);
+  const handleInputChange = (name, value) => {
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    console.log(formData)
+  
+  };
+
+  const onsubmit=(e)=>{
+    e.preventDefault()
+    console.log(formData)
+
+  }
   return (
     <div>
       <Header />
@@ -27,11 +42,14 @@ function AddListing() {
                     {item.required && <span className="text-red-600">*</span>}
                   </lable>
                   {item.fieldType == "text" || item.fieldType == "number" ? (
-                    <InputField item={item} />
+                    <InputField
+                      item={item}
+                      handleInputChange={handleInputChange}
+                    />
                   ) : item.fieldType == "dropdown" ? (
-                    <DropdownField item={item} />
+                    <DropdownField item={item} handleInputChange={handleInputChange}/>
                   ) : item.fieldType == "textarea" ? (
-                    <TextAreaField item={item} />
+                    <TextAreaField item={item} handleInputChange={handleInputChange} />
                   ) : null}
                 </div>
               ))}
@@ -44,13 +62,13 @@ function AddListing() {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
               {features.features.map((item, index) => (
                 <div key={index} className="flex gap-2 items-center">
-                  <Checkbox /> <h2>{item.label}</h2>
+                  <Checkbox onCheckedChange={(value)=>handleInputChange(item.name, value)} /> <h2>{item.label}</h2>
                 </div>
               ))}
             </div>
           </div>
           <div className="mt-10 flex justify-end">
-            <Button>Submit</Button>
+            <Button type="submit" onClick={(e)=>onsubmit(e)}>Submit</Button>
           </div>
         </form>
       </div>
