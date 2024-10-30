@@ -8,6 +8,9 @@ import { Separator } from "@/components/ui/separator";
 import features from "./../Shared/features.json";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
+import { db } from "./../../configs";
+import { CarListing } from "./../../configs/schema";
+import IconField from "./components/IconField";
 
 function AddListing() {
   const [formData, setFormData] = useState([]);
@@ -20,9 +23,18 @@ function AddListing() {
   
   };
 
-  const onsubmit=(e)=>{
+  const onsubmit=async(e)=>{
     e.preventDefault()
     console.log(formData)
+    try {
+      const result =await db.insert(CarListing).values(formData)
+      if(result){
+        console.log("data save")
+      }
+    } catch (error) {
+      console.log("error",error)
+    }
+    
 
   }
   return (
@@ -38,6 +50,7 @@ function AddListing() {
               {carDetails.carDetails.map((item, index) => (
                 <div key={index}>
                   <lable className="text-sm">
+                    <IconField icon={item?.icon}/>
                     {item?.label}{" "}
                     {item.required && <span className="text-red-600">*</span>}
                   </lable>
