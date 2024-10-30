@@ -49,7 +49,7 @@ function AddListing() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {carDetails.carDetails.map((item, index) => (
                 <div key={index}>
-                  <lable className="text-sm">
+                  <lable className="text-sm flex gap-2 items-center mb-1">
                     <IconField icon={item?.icon}/>
                     {item?.label}{" "}
                     {item.required && <span className="text-red-600">*</span>}
