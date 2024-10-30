@@ -14,6 +14,7 @@ import IconField from "./components/IconField";
 
 function AddListing() {
   const [formData, setFormData] = useState([]);
+  const [featuresData, setFeaturesData]=useState([])
   const handleInputChange = (name, value) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -22,6 +23,13 @@ function AddListing() {
     console.log(formData)
   
   };
+
+  const handleFeatureChange=(name, value)=>{
+    setFeaturesData((prevData)=>({
+      ...prevData,
+      [name]:value
+    }))
+  }
 
   const onsubmit=async(e)=>{
     e.preventDefault()
