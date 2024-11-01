@@ -1,9 +1,13 @@
 import React from "react";
 
 function UploadImages() {
+    const [selectedFileList, setSelectedFileList]= useState([])
   const onFileSelected = (event) => {
     const files = event.target.files;
-    console.log(files);
+    for(let i=0; i<files?.length;i++){
+        const file = files[i]
+        setSelectedFileList((prev)=>[...prev,file])
+    }
   };
   return (
     <div>
