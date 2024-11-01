@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/button";
 import { db } from "./../../configs";
 import { CarListing } from "./../../configs/schema";
 import IconField from "./components/IconField";
+import UploadImages from "./components/UploadImages";
 
 function AddListing() {
   const [formData, setFormData] = useState({});
@@ -75,9 +76,15 @@ function AddListing() {
                       handleInputChange={handleInputChange}
                     />
                   ) : item.fieldType === "dropdown" ? (
-                    <DropdownField item={item} handleInputChange={handleInputChange} />
+                    <DropdownField
+                      item={item}
+                      handleInputChange={handleInputChange}
+                    />
                   ) : item.fieldType === "textarea" ? (
-                    <TextAreaField item={item} handleInputChange={handleInputChange} />
+                    <TextAreaField
+                      item={item}
+                      handleInputChange={handleInputChange}
+                    />
                   ) : null}
                 </div>
               ))}
@@ -91,13 +98,18 @@ function AddListing() {
               {features.features.map((item, index) => (
                 <div key={index} className="flex gap-2 items-center">
                   <Checkbox
-                    onCheckedChange={(checked) => handleFeatureChange(item.name, checked)}
+                    onCheckedChange={(checked) =>
+                      handleFeatureChange(item.name, checked)
+                    }
                   />{" "}
                   <h2>{item.label}</h2>
                 </div>
               ))}
             </div>
           </div>
+          {/* car images */}
+          <UploadImages />
+
           <div className="mt-10 flex justify-end">
             <Button type="submit">Submit</Button>
           </div>
