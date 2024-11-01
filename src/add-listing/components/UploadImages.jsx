@@ -1,6 +1,6 @@
 import React from 'react'
 
-function CheckboxField() {
+function UploadImages() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function CheckboxField() {
   )
 }
 
-export default CheckboxField
+export default UploadImages
