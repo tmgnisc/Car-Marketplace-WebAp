@@ -108,6 +108,7 @@ function AddListing() {
             </div>
           </div>
           {/* car images */}
+          <Separator className='my-6'/>
           <UploadImages />
 
           <div className="mt-10 flex justify-end">
