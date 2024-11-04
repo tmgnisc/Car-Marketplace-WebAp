@@ -1,3 +1,4 @@
+import { storage } from "configs/firebaseConfig";
 import React, { useState } from "react";
 import { IoMdCloseCircle } from "react-icons/io";
 
@@ -15,6 +16,14 @@ function UploadImages() {
     const result=selectedFileList.filter((item)=>item!=image)
     setSelectedFileList(result)
   }
+
+  const uploadImages=()=>{
+    selectedFileList.forEach((file)=>{
+      const fileName = Date.now()+'jpeg'
+      const storageRef = ref(storage, )
+    })
+  }
+
   return (
     <div>
       <h2 className="font-medium text-xl my-3">Upload car Images</h2>
