@@ -16,6 +16,7 @@ import UploadImages from "./components/UploadImages";
 function AddListing() {
   const [formData, setFormData] = useState({});
   const [featuresData, setFeaturesData] = useState([]); // Start as an empty array
+  const [imageUrls, setImageUrls] = useState([]); // To store image URLs
 
   const handleInputChange = (name, value) => {
     setFormData((prevData) => ({
@@ -34,16 +35,21 @@ function AddListing() {
     });
   };
 
+  const onUploadComplete = (urls) => {
+    setImageUrls(urls);
+  };
+
   const onsubmit = async (e) => {
     e.preventDefault();
-
     console.log("Form Data:", formData);
     console.log("Features Data:", featuresData);
+    console.log("Image URLs:", imageUrls);
 
     try {
       const result = await db.insert(CarListing).values({
         ...formData,
-        features: featuresData, // Use featuresData directly
+        features: featuresData,
+        images: imageUrls, // Store image URLs with listing
       });
       if (result) {
         console.log("Data saved successfully");
@@ -111,7 +117,7 @@ function AddListing() {
           </div>
           {/* car images */}
           <Separator className='my-6'/>
-          <UploadImages />
+          <UploadImages onUploadComplete={onUploadComplete} />
 
           <div className="mt-10 flex justify-end">
             <Button type="submit">Submit</Button>
