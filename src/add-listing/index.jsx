@@ -1,5 +1,7 @@
-import Header from "@/components/Header";
 import React, { useState } from "react";
+import { toast, ToastContainer } from "react-toastify"; // Import toast and ToastContainer
+import "react-toastify/dist/ReactToastify.css"; // Import the CSS for the toast notifications
+import Header from "@/components/Header";
 import carDetails from "./../Shared/carDetails.json";
 import InputField from "./components/InputField";
 import DropdownField from "./components/DropdownField";
@@ -15,8 +17,8 @@ import UploadImages from "./components/UploadImages";
 
 function AddListing() {
   const [formData, setFormData] = useState({});
-  const [featuresData, setFeaturesData] = useState([]); // Start as an empty array
-  const [imageUrls, setImageUrls] = useState([]); // To store image URLs
+  const [featuresData, setFeaturesData] = useState([]);
+  const [imageUrls, setImageUrls] = useState([]);
 
   const handleInputChange = (name, value) => {
     setFormData((prevData) => ({
@@ -28,9 +30,9 @@ function AddListing() {
   const handleFeatureChange = (name, checked) => {
     setFeaturesData((prevData) => {
       if (checked) {
-        return [...prevData, name]; // Add feature if checked
+        return [...prevData, name];
       } else {
-        return prevData.filter((feature) => feature !== name); // Remove feature if unchecked
+        return prevData.filter((feature) => feature !== name);
       }
     });
   };
@@ -49,20 +51,29 @@ function AddListing() {
       const result = await db.insert(CarListing).values({
         ...formData,
         features: featuresData,
-        images: imageUrls, // Store image URLs with listing
+        images: imageUrls,
       });
       if (result) {
-        console.log("Data saved successfully");
+        toast.success("Data saved successfully!"); // Show success toast
       }
     } catch (error) {
-      console.log("Error:", error);
+      console.error("Error:", error);
+      toast.error("Error saving data!"); // Show error toast
     }
   };
 
-
-
   return (
     <div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        closeOnClick
+        pauseOnHover
+        draggable
+        pauseOnFocusLoss
+      />
+
       <Header />
       <div className="px-10 md:px-20 my-10">
         <h2 className="font-bold text-4xl">Add new Listing</h2>
@@ -115,8 +126,8 @@ function AddListing() {
               ))}
             </div>
           </div>
-          {/* car images */}
-          <Separator className='my-6'/>
+          {/* Car images */}
+          <Separator className="my-6" />
           <UploadImages onUploadComplete={onUploadComplete} />
 
           <div className="mt-10 flex justify-end">
