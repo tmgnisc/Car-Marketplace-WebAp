@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { toast, ToastContainer } from "react-toastify"; // Import toast and ToastContainer
-import "react-toastify/dist/ReactToastify.css"; // Import the CSS for the toast notifications
+import { toast, ToastContainer } from "react-toastify"; 
+import "react-toastify/dist/ReactToastify.css"; 
 import Header from "@/components/Header";
 import carDetails from "./../Shared/carDetails.json";
 import InputField from "./components/InputField";
@@ -54,11 +54,11 @@ function AddListing() {
         images: imageUrls,
       });
       if (result) {
-        toast.success("Data saved successfully!"); // Show success toast
+        toast.success("Data saved successfully!"); 
       }
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Error saving data!"); // Show error toast
+      toast.error("Error saving data!"); 
     }
   };
 

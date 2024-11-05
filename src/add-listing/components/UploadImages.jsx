@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { IoMdCloseCircle } from "react-icons/io";
-import supabase from "../../../configs/Supabaseconfig"; // Import Supabase client
+import supabase from "../../../configs/Supabaseconfig"; 
 
-function UploadImages({ onUploadComplete }) {  // Add onUploadComplete to props
+function UploadImages({ onUploadComplete }) {  
   const [selectedFileList, setSelectedFileList] = useState([]);
 
   const onFileSelected = (event) => {
@@ -35,9 +35,9 @@ function UploadImages({ onUploadComplete }) {  // Add onUploadComplete to props
       }
     }));
 
-    // Pass back the URLs to the parent component
+  
     if (uploadedImageUrls.length > 0) {
-      onUploadComplete(uploadedImageUrls); // Call the provided callback
+      onUploadComplete(uploadedImageUrls); 
     }
   };
 

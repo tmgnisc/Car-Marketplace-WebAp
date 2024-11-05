@@ -25,6 +25,7 @@ export const CarListing= pgTable('carListing', {
     listingDescription:varchar('listingDescription').notNull(),
 
     features:json('features')
+    
  
 
 })
