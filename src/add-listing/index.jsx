@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { toast, ToastContainer } from "react-toastify"; 
-import "react-toastify/dist/ReactToastify.css"; 
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Header from "@/components/Header";
 import carDetails from "./../Shared/carDetails.json";
 import InputField from "./components/InputField";
@@ -14,6 +14,7 @@ import { db } from "./../../configs";
 import { CarListing } from "./../../configs/schema";
 import IconField from "./components/IconField";
 import UploadImages from "./components/UploadImages";
+import { useNavigate } from "react-router-dom";
 
 function AddListing() {
   const [formData, setFormData] = useState({});
@@ -40,25 +41,29 @@ function AddListing() {
   const onUploadComplete = (urls) => {
     setImageUrls(urls);
   };
+  const navigate = useNavigate();
 
   const onsubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data:", formData);
-    console.log("Features Data:", featuresData);
-    console.log("Image URLs:", imageUrls);
 
     try {
       const result = await db.insert(CarListing).values({
         ...formData,
-        features: featuresData,
+        features: Array.from(featuresData),
         images: imageUrls,
       });
+
       if (result) {
-        toast.success("Data saved successfully!"); 
+        toast.success("Data saved successfully!");
+
+
+        setTimeout(() => {
+          navigate("/profile");
+        }, 2000); 
       }
     } catch (error) {
       console.error("Error:", error);
-      toast.error("Error saving data!"); 
+      toast.error("Error saving data!");
     }
   };
 
